@@ -1,0 +1,608 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap');
+
+$teal: #b2d8d8;
+$teal-dark: #7ab8b8;
+$teal-deeper: #3d8f8f;
+$white: #ffffff;
+$black: #1a1a1a;
+$gray: #6b6b6b;
+$light-gray: #f5f5f5;
+$border: #e4e4e4;
+
+.app {
+  display: flex;
+  justify-content: center;
+  font-family: 'Jost', sans-serif;
+  background-color: $white;
+  color: $black;
+
+  .container {
+    width: 1024px;
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.25s ease;
+    }
+
+    // ── Auth (Login & Register) ──────────────────
+    .auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      background-color: $teal;
+      gap: 0;
+
+      h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 32px;
+        color: $black;
+        margin-bottom: 24px;
+        letter-spacing: -0.01em;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        background-color: $white;
+        gap: 14px;
+        width: 260px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      }
+
+      input {
+        padding: 10px 0;
+        border: none;
+        border-bottom: 1.5px solid $border;
+        font-family: 'Jost', sans-serif;
+        font-size: 14px;
+        outline: none;
+        background: transparent;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-bottom-color: $teal-dark;
+        }
+
+        &::placeholder {
+          color: #bbb;
+        }
+      }
+
+      button {
+        margin-top: 6px;
+        padding: 12px;
+        border: none;
+        background-color: $black;
+        color: $white;
+        cursor: pointer;
+        font-family: 'Jost', sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: $teal-deeper;
+        }
+      }
+
+      p {
+        font-size: 13px;
+        text-align: center;
+        color: rgb(200, 30, 30);
+      }
+
+      span {
+        font-size: 14px;
+        text-align: center;
+        color: $gray;
+      }
+    }
+
+    // ── Global h1 ────────────────────────────────
+    h1 {
+      font-size: 20px;
+      color: $black;
+      margin-bottom: 20px;
+    }
+
+    // ── Navbar ───────────────────────────────────
+    .navbar {
+      border-bottom: 1px solid $border;
+
+      .container {
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+          img {
+            width: 120px;
+            display: block;
+          }
+        }
+
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h6 {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: $gray;
+            transition: color 0.2s ease;
+
+            &:hover {
+              color: $black;
+            }
+          }
+
+          span {
+            cursor: pointer;
+            font-size: 13px;
+            color: $gray;
+            transition: color 0.2s ease;
+
+            &:hover {
+              color: $black;
+            }
+          }
+
+          .write {
+            background-color: $teal;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+              color: $black;
+              background-color: $white;
+              border: 1px solid $black;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+          }
+        }
+      }
+    }
+
+    // ── Footer ───────────────────────────────────
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: $teal;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+
+      span {
+        font-size: 14px;
+        color: $black;
+      }
+
+      img {
+        height: 50px;
+      }
+    }
+
+    // ── Home ─────────────────────────────────────
+    .home {
+      .posts {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+        padding-bottom: 80px;
+      }
+
+      .post {
+        display: flex;
+        gap: 100px;
+        align-items: center;
+
+        &:nth-child(2n + 1) {
+          flex-direction: row-reverse;
+        }
+
+        .img {
+          flex: 2;
+          position: relative;
+            z-index: 0;
+
+
+
+          &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: $teal;
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            z-index: -1;
+            transition: top 0.3s ease, left 0.3s ease;
+          }
+
+          &:hover::after {
+            top: 12px;
+            left: -12px;
+          }
+
+          img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+          }
+        }
+
+        .content {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 16px;
+
+          h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 0;
+          }
+
+          p {
+            font-size: 18px;
+            color: $gray;
+            line-height: 1.7;
+          }
+
+          button {
+            width: max-content;
+            padding: 10px 20px;
+            border: none;
+            background-color: $white;
+            cursor: pointer;
+            border: 1px solid teal;
+            color: teal;
+            font-family: 'Jost', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+              border: 1px solid $white;
+              background-color: $teal;
+              color: $black;
+              box-shadow: 0 4px 14px rgba($teal-dark, 0.4);
+            }
+          }
+        }
+      }
+    }
+
+    // ── Single Post ──────────────────────────────
+    .single {
+      display: flex;
+      gap: 50px;
+      padding: 40px 0 80px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          flex-wrap: nowrap;
+          padding-bottom: 16px;
+          border-bottom: 1px solid $border;
+
+          > img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid $teal;
+            flex-shrink: 0;
+          }
+
+          .info {
+            flex: 1;
+            min-width: 0;
+          }
+
+          span {
+            font-weight: bold;
+            display: block;
+          }
+
+          p {
+            font-size: 12px;
+            color: $gray;
+            text-align: left;
+            line-height: 1.4;
+          }
+
+          .edit {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            margin-left: auto;
+
+            img {
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+              border: none;
+              border-radius: 0;
+              opacity: 0.55;
+              transition: opacity 0.2s ease, transform 0.2s ease;
+
+              &:hover {
+                opacity: 1;
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+
+        h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: 42px;
+          color: rgba(135, 68, 68, 0.803);
+          line-height: 1.2;
+          margin-bottom: 0;
+        }
+
+        p {
+          text-align: justify;
+          line-height: 30px;
+          color: darken($gray, 5%);
+        }
+      }
+
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h1 {
+          font-family: 'Playfair Display', serif;
+          font-size: 18px;
+          font-weight: 400;
+          font-style: italic;
+          color: #555;
+          padding-bottom: 10px;
+          border-bottom: 1px solid $border;
+          margin-bottom: 0;
+        }
+
+        .post {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding-bottom: 18px;
+          border-bottom: 1px solid $border;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        h2 {
+          color: #555;
+          font-family: 'Playfair Display', serif;
+          font-size: 15px;
+          line-height: 1.4;
+        }
+
+        button {
+          width: max-content;
+          padding: 10px 20px;
+          border: none;
+          background-color: $white;
+          cursor: pointer;
+          border: 1px solid teal;
+          color: teal;
+          font-family: 'Jost', sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          transition: background-color 0.2s ease, color 0.2s ease;
+
+          &:hover {
+            border: 1px solid $white;
+            background-color: $teal;
+            color: $gray;
+          }
+        }
+      }
+    }
+
+    // ── Write ────────────────────────────────────
+    .add {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      padding-bottom: 60px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+          padding: 10px 0;
+          border: none;
+          border-bottom: 2px solid $border;
+          font-family: 'Playfair Display', serif;
+          font-size: 22px;
+          color: $black;
+          background: transparent;
+          outline: none;
+          transition: border-color 0.2s ease;
+
+          &::placeholder {
+            color: #ccc;
+          }
+
+          &:focus {
+            border-bottom-color: $teal-dark;
+          }
+        }
+
+        .editorContainer {
+          height: 300px;
+          overflow: scroll;
+          border: 1px solid $border;
+
+          editor {
+            height: 100%;
+            border: none;
+          }
+        }
+      }
+
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .item {
+          border: 1px solid $border;
+          padding: 16px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #555;
+          gap: 10px;
+
+          h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: $black;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $border;
+          }
+
+          .file {
+            text-decoration: underline;
+            cursor: pointer;
+            color: $teal-deeper;
+            font-weight: 500;
+            transition: color 0.2s ease;
+
+            &:hover {
+              color: $black;
+            }
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+
+            :first-child {
+              cursor: pointer;
+              color: teal;
+              background-color: $white;
+              border: 1px solid teal;
+              padding: 6px 10px;
+              font-family: 'Jost', sans-serif;
+              font-size: 11px;
+              font-weight: 500;
+              letter-spacing: 0.04em;
+              transition: background-color 0.2s ease;
+
+              &:hover {
+                background-color: $light-gray;
+              }
+            }
+
+            :last-child {
+              cursor: pointer;
+              color: $white;
+              background-color: teal;
+              border: 1px solid teal;
+              padding: 6px 10px;
+              font-family: 'Jost', sans-serif;
+              font-size: 11px;
+              font-weight: 500;
+              letter-spacing: 0.04em;
+              transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+              &:hover {
+                background-color: $teal-deeper;
+                box-shadow: 0 4px 10px rgba($teal-dark, 0.3);
+              }
+            }
+          }
+
+          .cat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: teal;
+            font-size: 13px;
+            padding: 3px 0;
+
+            input[type="radio"] {
+              accent-color: teal;
+              cursor: pointer;
+            }
+
+            label {
+              cursor: pointer;
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
